@@ -1,0 +1,47 @@
+.navbar {
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0.6rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-family: 'Georgia', serif;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links li {
+  list-style: none;
+}
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: #333;
+}
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav-icons input {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.9rem;
+}
+.compteur {
+  background-color: red;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  margin-left: 4px;
+}

@@ -1,0 +1,37 @@
+.filter-section {
+  padding: 2rem;
+  text-align: center;
+}
+
+.cat-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.cat-card {
+  width: 120px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.cat-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  transition: transform 0.3s ease;
+}
+
+.cat-card img:hover {
+  transform: scale(1.05);
+}
+
+.cat-card p {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}

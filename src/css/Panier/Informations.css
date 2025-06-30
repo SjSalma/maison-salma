@@ -1,0 +1,31 @@
+.page-informations {
+  padding: clamp(1rem, 3vw, 2rem);
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+}
+
+.page-informations form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.page-informations input {
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
+
+.page-informations button {
+  padding: 0.7rem;
+  background-color: #111;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.page-informations button:hover {
+  background-color: #444;
+}

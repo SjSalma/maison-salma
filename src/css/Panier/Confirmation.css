@@ -1,0 +1,15 @@
+.page-confirmation {
+  padding: clamp(1rem, 3vw, 2rem);
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.page-confirmation h2 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  color: #2d2d2d;
+}
+
+.page-confirmation p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-top: 1rem;
+}

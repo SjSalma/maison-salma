@@ -1,0 +1,10 @@
+.promo-banner {
+  background-color: #90c3b3;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  position: relative;
+  z-index: 2;
+}
