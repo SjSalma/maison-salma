@@ -31,7 +31,6 @@ export default function Panier() {
 
       {panier.length === 0 ? (
         <p className="panier-vide">Votre panier est vide.</p>
-
       ) : (
         <div className="panier-grid">
           {/* Section gauche - Produits */}
@@ -47,16 +46,18 @@ export default function Panier() {
             {panier.map((produit) => {
               const prixUnitaire = produit.prix * (1 - (produit.solde || 0) / 100);
               const sousTotal = prixUnitaire * produit.quantite;
+              const imagePath = `${process.env.PUBLIC_URL}/images/produits/${produit.id}.jpg`;
+              const fallback = `${process.env.PUBLIC_URL}/images/produits/image_defaut.jpg`;
 
               return (
                 <div className="ligne-produit" key={produit.id}>
                   <div className="cellule-produit">
                     <img
-                      src={`/images/produits/${produit.id}.jpg`}
+                      src={imagePath}
                       alt={produit.nom}
-                      onError={(se) => {
+                      onError={(e) => {
                         e.target.onerror = null;
-                        e.target.src = "/images/produits/image_defaut.jpg";
+                        e.target.src = fallback;
                       }}
                     />
                     <span>{produit.nom}</span>

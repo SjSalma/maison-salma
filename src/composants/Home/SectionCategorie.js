@@ -114,6 +114,9 @@ export default function SectionCategorie({ titre, data, filtre, className = '' }
       <div className="cat-grid" ref={scrollRef}>
         {data.map(({ label }) => {
           const imageName = slugify(label) + '.jpg';
+          const imagePath = `${process.env.PUBLIC_URL}/images/cathégories/${imageName}`;
+          const fallback = `${process.env.PUBLIC_URL}/images/cathégories/image_defaut.jpg`;
+
           return (
             <div
               key={label}
@@ -121,11 +124,11 @@ export default function SectionCategorie({ titre, data, filtre, className = '' }
               onClick={() => navigateToFilter(filtre, label)}
             >
               <img
-                src={`/images/cathégories/${imageName}`}
+                src={imagePath}
                 alt={label}
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = '/images/cathégories/image_defaut.jpg';
+                  e.target.src = fallback;
                 }}
               />
               <p>{label}</p>

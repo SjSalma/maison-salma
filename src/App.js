@@ -5,6 +5,7 @@ import {
   Route,
   useNavigate,
   useLocation,
+  Navigate,
 } from 'react-router-dom';
 
 import Navbar from './composants/Navbar';
@@ -26,11 +27,9 @@ import { usePanier } from './context/PanierContext';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-
   return null;
 }
 
@@ -77,6 +76,9 @@ function AppRoutes() {
         element={<Paiement onSuivant={() => navigate('/achat/confirmation')} />}
       />
       <Route path="/achat/confirmation" element={<Confirmation />} />
+
+      {/* ✅ Redirection des routes inconnues vers la Home */}
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 }
@@ -108,9 +110,12 @@ function AppWrapper() {
   );
 }
 
+// ✅ GitHub Pages en prod, sinon local
+const basename = process.env.NODE_ENV === 'production' ? '/maison-salma' : '/';
+
 export default function App() {
   return (
-    <Router>
+    <Router basename={basename}>
       <AppWrapper />
     </Router>
   );

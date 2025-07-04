@@ -7,9 +7,9 @@ export default function ProduitCard({ produit, onVoirDetails, className }) {
   const { favoris, toggleFavori } = useFavoris();
   const estFavori = favoris.some(p => p.id === produit.id);
 
-  // Génération automatique de l'image selon l'ID du produit
-  const imagePath = `/images/produits/${produit.id}.jpg`;
-  const fallback = '/images/produits/image_defaut.jpg';
+  // ✅ Chemins d'image compatibles GitHub Pages et local
+  const imagePath = `${process.env.PUBLIC_URL}/images/produits/${produit.id}.jpg`;
+  const fallback = `${process.env.PUBLIC_URL}/images/produits/image_defaut.jpg`;
 
   return (
     <div className={`produit-card ${className || ''}`}>

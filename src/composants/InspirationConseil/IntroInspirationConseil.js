@@ -6,7 +6,7 @@ export default function IntroInspiration() {
     <section className="intro-inspiration">
       <div className="inspiration-banner">
         <img
-          src="/images/InspirationConseil/inspirationConseil_banniere.jpg"
+          src={`${process.env.PUBLIC_URL}/images/InspirationConseil/inspirationConseil_banniere.jpg`}
           alt="Bannière Inspiration & Conseils"
         />
       </div>

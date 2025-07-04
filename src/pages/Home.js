@@ -43,7 +43,7 @@ export default function Home() {
   return (
     <div className="home-page">
       <div className="home-banner">
-        <img src="/images/Home/home_banniere.jpg" alt="Bannière Maison Salma" />
+        <img src={`${process.env.PUBLIC_URL}/images/Home/home_banniere.jpg`} alt="Bannière Maison Salma" />
       </div>
 
       {/* ✅ Wrapper qui remonte tout */}
