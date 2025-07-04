@@ -41,9 +41,9 @@ export default function ProduitCard({ produit, onVoirDetails, className }) {
 
       <p>{produit.description}</p>
       <p>
-        <strong>{(produit.prix * (1 - produit.solde / 100)).toFixed(2)} €</strong>
+        <strong>{(produit.prix * (1 - produit.solde / 100)).toFixed(2)} $</strong>
         {produit.solde > 0 && (
-          <span className="prix-original"> {produit.prix.toFixed(2)} €</span>
+          <span className="prix-original"> {produit.prix.toFixed(2)} $</span>
         )}
       </p>
     </div>

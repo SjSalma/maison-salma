@@ -1,8 +1,11 @@
 import React from 'react';
+import { usePanier } from '../../context/PanierContext';
 import ProgressionAchat from '../../composants/Panier/ProgressionAchat';
 import '../../css/Panier/Paiement.css';
 
 export default function Paiement({ onSuivant }) {
+  const { viderPanier } = usePanier();
+
   const handlePaiement = (e) => {
     e.preventDefault();
 
@@ -16,15 +19,19 @@ export default function Paiement({ onSuivant }) {
       prix_total: item.prix_total || (item.prix * item.quantite)
     }));
 
-    localStorage.setItem('panier', JSON.stringify(panierAvecTotaux));
+    // ✅ ENREGISTRER LE PANIER FINAL POUR CONFIRMATION
+    localStorage.setItem('panier_final', JSON.stringify(panierAvecTotaux));
 
-    const total = panierAvecTotaux.reduce((acc, item) => acc + (item.prix_total || 0), 0).toFixed(2);
+    // ✅ CALCUL TOTAL
+    const total = panierAvecTotaux.reduce((acc, item) => acc + item.prix_total, 0).toFixed(2);
     localStorage.setItem('total', total);
 
-    // réinitialiser flag email
-    localStorage.removeItem('emailEnvoye');
+    // ✅ VIDER LE PANIER
+    localStorage.setItem('panier', JSON.stringify([])); // vider localStorage
+    viderPanier(); // vider le contexte React
 
-    onSuivant();
+    localStorage.removeItem('emailEnvoye'); // reset flag
+    onSuivant(); // aller à confirmation
   };
 
   return (
@@ -40,4 +47,3 @@ export default function Paiement({ onSuivant }) {
     </div>
   );
 }
- 

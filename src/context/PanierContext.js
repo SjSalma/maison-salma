@@ -37,10 +37,16 @@ export function PanierProvider({ children }) {
     }
   };
 
+  const viderPanier = () => {
+    savePanier([]);
+  };
+
   const quantiteTotale = panier.reduce((total, p) => total + p.quantite, 0);
 
   return (
-    <PanierContext.Provider value={{ panier, ajouterProduit, changerQuantite, quantiteTotale }}>
+    <PanierContext.Provider
+      value={{ panier, ajouterProduit, changerQuantite, quantiteTotale, viderPanier }}
+    >
       {children}
     </PanierContext.Provider>
   );

@@ -21,6 +21,7 @@ export default function Panier() {
 
   const handleAchat = () => {
     localStorage.setItem('total', total.toFixed(2));
+    localStorage.setItem('panier_final', JSON.stringify(panier)); // ✅ pour la confirmation
     navigate('/achat/informations');
   };
 
@@ -45,7 +46,7 @@ export default function Panier() {
 
             {panier.map((produit) => {
               const prixUnitaire = produit.prix * (1 - (produit.solde || 0) / 100);
-              const sousTotal = prixUnitaire * produit.quantite;
+              const sousTotalProduit = prixUnitaire * produit.quantite;
               const imagePath = `${process.env.PUBLIC_URL}/images/produits/${produit.id}.jpg`;
               const fallback = `${process.env.PUBLIC_URL}/images/produits/image_defaut.jpg`;
 
@@ -62,7 +63,7 @@ export default function Panier() {
                     />
                     <span>{produit.nom}</span>
                   </div>
-                  <span>{prixUnitaire.toFixed(2)} €</span>
+                  <span>{prixUnitaire.toFixed(2)} $</span>
                   <div className="quantite-control quantite-panier">
                     <button
                       onClick={() => changerQuantite(produit.id, produit.quantite - 1)}
@@ -73,7 +74,7 @@ export default function Panier() {
                     <span>{produit.quantite}</span>
                     <button onClick={() => changerQuantite(produit.id, produit.quantite + 1)}>+</button>
                   </div>
-                  <span>{sousTotal.toFixed(2)} €</span>
+                  <span>{sousTotalProduit.toFixed(2)} $</span>
                   <button
                     onClick={() => changerQuantite(produit.id, 0)}
                     className="btn-supprimer"
@@ -89,9 +90,9 @@ export default function Panier() {
           {/* Section droite - Récapitulatif */}
           <div className="panier-total">
             <h3>Récapitulatif</h3>
-            <p><span>Sous-total :</span> <span>{sousTotal.toFixed(2)} €</span></p>
-            <p><span>Taxes :</span> <span>{taxes.toFixed(2)} €</span></p>
-            <h4><span>Total TTC :</span> <span>{total.toFixed(2)} €</span></h4>
+            <p><span>Sous-total :</span> <span>{sousTotal.toFixed(2)} $</span></p>
+            <p><span>Taxes (TPS/TVQ) :</span> <span>{taxes.toFixed(2)} $</span></p>
+            <h4><span>Total TTC :</span> <span>{total.toFixed(2)} $</span></h4>
             <button onClick={handleAchat} className="btn-checkout">Procéder à l’achat</button>
           </div>
         </div>

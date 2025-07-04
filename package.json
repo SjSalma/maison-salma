@@ -2,7 +2,7 @@
   "name": "maison-salma",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://TON-UTILISATEUR.github.io/maison-salma",
+  "homepage": "https://salmasajid.github.io/maison-salma",
   "scripts": {
     "start": "node server.js",
     "client": "react-scripts start",

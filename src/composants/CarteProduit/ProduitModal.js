@@ -56,10 +56,10 @@ export default function ProduitModal({ produit, onClose }) {
           <p className="modal-description">{produit.description}</p>
           <p className="modal-id">#{produit.id}</p>
           <p className="modal-prix">
-            <strong>{(produit.prix * (1 - produit.solde / 100)).toFixed(2)} €</strong>
+            <strong>{(produit.prix * (1 - produit.solde / 100)).toFixed(2)} $</strong>
             {produit.solde > 0 && (
               <span className="prix-original">
-                {produit.prix.toFixed(2)} €</span>
+                {produit.prix.toFixed(2)} $</span>
             )}
           </p>
 

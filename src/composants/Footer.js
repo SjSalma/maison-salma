@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../css/Footer.css';
 
 export default function Footer() {
@@ -9,10 +10,10 @@ export default function Footer() {
         <div className="footer-section">
           <h3>Liens utiles</h3>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/produits">Produits</a></li>
-            <li><a href="/inspiration">Inspiration & Conseils</a></li>
-            <li><a href="/apropos">À propos</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/produits">Produits</Link></li>
+            <li><Link to="/inspiration">Inspiration & Conseils</Link></li>
+            <li><Link to="/apropos">À propos</Link></li>
           </ul>
         </div>
 
