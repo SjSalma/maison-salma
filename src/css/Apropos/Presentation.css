@@ -1,0 +1,87 @@
+.text-apropos {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  color: #2c2c2c;
+}
+
+.intro-text {
+  background-color: #d8c09bc5;
+  text-align: center;
+  padding: clamp(10px, 1.6vw, 16px) clamp(1.3rem, 3.5vw, 2.6rem);
+  font-weight: bold;
+}
+
+.intro-text p {
+  font-family: 'Segoe UI', serif;
+  color: #46462a;
+  font-weight: bold;
+  font-size: clamp(0.95rem, 1.45vw, 1.15rem);
+  line-height: 1.7;
+  letter-spacing: clamp(0.2px, 0.3vw, 0.3px);
+  text-align: left;
+}
+
+.apropos-section {
+  padding: 0 clamp(1.5rem, 4vw, 3rem);
+  margin-bottom: clamp(2.5rem, 7vw, 5rem);
+  margin-top: clamp(2.5rem, 7vw, 5rem);
+}
+
+.apropos-section h2 {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  margin-bottom: 1.2rem;
+  font-weight: normal;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  color: #2c2c2c;
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  font-weight: normal;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.apropos-section p {
+  font-size: clamp(0.95rem, 1.45vw, 1.15rem);
+  line-height: 1.7;
+  color: #2c2c2c;
+  font-family: 'Segoe UI', serif;
+  letter-spacing: clamp(0.2px, 0.3vw, 0.3px);
+  text-align: left;
+}
+
+.apropos-section ul {
+  padding-left: 1.5rem;
+  margin-top: clamp(0.5rem, 1vw, 1rem);
+}
+
+.apropos-section li {
+  margin-bottom: 0.6rem;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  color: #2c2c2c;
+  line-height: 1.6;
+}
+
+.apropos-section li strong {
+  color: #6b150f;
+}
+
+.contact-ligne {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+  padding-left: 1.5rem;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+}
+
+.icon-apropos {
+  color: #6b150f;
+  flex-shrink: 0;
+  font-size: 1em;
+  width: 1em;
+  height: 1em;
+}
+
+.apropos-paraphraphe {
+  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+}

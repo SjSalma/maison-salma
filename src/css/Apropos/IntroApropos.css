@@ -1,0 +1,46 @@
+.page-apropos {
+  margin: 0;
+  padding: 0;
+  color: #6b150f;
+  text-align: center;
+  font-weight: bold;
+}
+
+.apropos-banner {
+  position: relative;
+  margin-top: calc(-1 * clamp(140px, 12vw, 180px));
+  z-index: 0;
+}
+
+.apropos-banner img {
+  width: 100%;
+  max-height: clamp(500px, 50vw, 800px);
+  object-fit: cover;
+  object-position: 50% 70%;
+  display: block;
+}
+
+.intro-apropos {
+  position: relative;
+  margin: clamp(2.5rem, 7vw, 5rem);
+  display: block;
+}
+
+.intro-apropos h1 {
+  background-color: #d8c09bc5;
+  font-family: 'Georgia', serif;
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+  margin-bottom: 1rem;
+  padding: 0 0.5em;
+  display: inline-block;
+}
+
+.intro-apropos p {
+  font-family: 'Segoe UI', serif;
+  background-color: #d8c09bc5;
+  font-size: clamp(15px, 1.8vw, 22px);
+  margin: 0;
+  padding: 0 0.5em;
+  display: inline-block;
+  letter-spacing: clamp(0.3px, 0.5vw, 0.6px);
+}

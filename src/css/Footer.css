@@ -1,0 +1,94 @@
+.footer {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  max-width: 100vw;
+  background-color: #f5f5f5;
+  color: #2c2c2c;
+  font-family: 'Georgia', serif;
+  padding: clamp(24px, 3vw, 40px);
+  border-top: clamp(1px, 0.2vw, 1px) solid #ddd;
+  margin-top: clamp(48px, 5vw, 64px);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.page-decalee .footer {
+  margin-top: clamp(-80px, -5vw, -50px); /* pour la page d'accueil */
+}
+
+.page-inspiration-decalee .footer {
+  margin-top: 0; /* pour la page /inspiration */
+}
+
+.footer-container {
+  margin: 0 auto;
+  padding-left: clamp(16px, 3vw, 32px);
+  padding-right: clamp(16px, 3vw, 32px);
+  display: flex;
+  flex-wrap: nowrap;
+  gap: clamp(16px, 2vw, 32px);
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.footer-section {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  max-width: max-content;
+  box-sizing: border-box;
+}
+
+.footer-section h3 {
+  font-weight: 600;
+  font-size: clamp(14px, 1.4vw, 16px);
+  margin-bottom: clamp(12px, 1vw, 13px);
+  color: #2c2c2c;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.footer-section p,
+.footer-section li {
+  font-size: clamp(14px, 1.4vw, 16px);
+  margin-bottom: clamp(6px, 0.8vw, 8px);
+  line-height: 1.4;
+  color: #2c2c2ccc;
+  text-align: left;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li a {
+  color: #2c2c2c;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.footer-section ul li a:hover,
+.footer-section ul li a:focus {
+  color: #6b150f;
+  outline: none;
+}
+
+@media (max-width: 700px) {
+  .footer-container {
+    flex-wrap: wrap;
+    padding: 0 clamp(12px, 3vw, 16px);
+    gap: clamp(12px, 1.5vw, 24px);
+  }
+
+  .footer-section {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}

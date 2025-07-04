@@ -1,5 +1,13 @@
-.hero-banner {
+.home-banner {
+  padding: 0;
   position: relative;
-  text-align: center;
-  margin-bottom: 2rem;
+  margin-top: calc(-1 * clamp(140px, 12vw, 180px));
+  z-index: 0;
+}
+
+.home-banner img {
+  width: 100%;
+  max-height: clamp(500px, 50vw, 800px);
+  object-fit: cover;
+  display: block;
 }

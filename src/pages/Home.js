@@ -1,3 +1,4 @@
+// Home.jsx
 import React, { useState, useEffect } from 'react';
 import BandePromo from '../composants/Home/BandePromo';
 import SectionCategorie from '../composants/Home/SectionCategorie';
@@ -41,10 +42,23 @@ export default function Home() {
 
   return (
     <div className="home-page">
-      <BandePromo />
-      <SectionCategorie titre="Par style" data={styles} filtre="style" />
-      <SectionCategorie titre="Par pièce" data={pieces} filtre="piece" />
-      <SectionSoldes produits={produitsSoldes} />
+      <div className="home-banner">
+        <img src="/images/Home/home_banniere.jpg" alt="Bannière Maison Salma" />
+      </div>
+
+      {/* ✅ Wrapper qui remonte tout */}
+      <div className="contenu-home">
+        <SectionCategorie titre="Découvrez notre sélection par style" 
+          data={styles} 
+          filtre="style" />
+        <SectionCategorie
+          titre="Découvrez notre sélection par pièce"
+          data={pieces}
+          filtre="piece"
+          className="avec-espace"
+        />
+        <SectionSoldes produits={produitsSoldes} />
+      </div>
     </div>
   );
 }

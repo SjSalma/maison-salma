@@ -1,42 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import ProduitCard from '../CarteProduit/ProduitCard';
+import ProduitModal from '../CarteProduit/ProduitModal';
 import '../../css/Home/SectionSoldes.css';
 
 export default function SectionSoldes({ produits }) {
+  const [produitActif, setProduitActif] = useState(null);
+
+  const handleVoirDetails = (produit) => {
+    setProduitActif(produit);
+  };
+
+  const fermerModal = () => {
+    setProduitActif(null);
+  };
+
   return (
-    <div style={{ background: '#fff8e1', padding: '20px', marginTop: '30px' }}>
-      <h2>🔥 Prix Mini (Top 4 rabais)</h2>
+    <div className="section-soldes">
+      <div className="soldes-header">
+        <h2 className="soldes-titre">Top 4 rabais</h2>
+        <Link to="/produits?filtre=solde" className="lien-solde">
+          Découvrir maintenant
+        </Link>
+      </div>
+
       {produits.length === 0 ? (
-        <p>Aucun produit en solde.</p>
+        <p className="soldes-vide">Aucun produit en solde.</p>
       ) : (
-        <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+        <div className="soldes-grille">
           {produits.map(produit => (
-            <div
+            <ProduitCard
               key={produit.id}
-              style={{
-                border: '1px solid #ccc',
-                borderRadius: '10px',
-                padding: '10px',
-                width: '200px',
-                background: '#fff'
-              }}
-            >
-              <img
-                src={produit.image}
-                alt={produit.nom}
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = '/images/produits/image_defaut.jpg';
-                }}
-                style={{ width: '100%', borderRadius: '6px' }}
-              />
-              <div style={{ marginTop: '10px' }}>
-                <p style={{ fontWeight: 'bold' }}>{produit.nom}</p>
-                <p style={{ margin: 0 }}>Rabais : -{produit.solde}%</p>
-                <p style={{ color: '#d32f2f' }}>CA${produit.prix.toFixed(2)}</p>
-              </div>
-            </div>
+              produit={produit}
+              onVoirDetails={() => handleVoirDetails(produit)}
+              className="carte-soldes produit-card"
+            />
           ))}
         </div>
+      )}
+
+      {produitActif && (
+        <ProduitModal
+          produit={produitActif}
+          onClose={fermerModal}
+        />
       )}
     </div>
   );

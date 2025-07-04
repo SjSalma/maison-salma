@@ -1,15 +1,38 @@
 .page-confirmation {
-  padding: clamp(1rem, 3vw, 2rem);
+  margin: 0;
+  padding: 0;
+  color: #6b150f;
   text-align: center;
-  font-family: 'Arial', sans-serif;
+  font-weight: bold;
 }
 
 .page-confirmation h2 {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  color: #2d2d2d;
+  background-color: #d8c09bc5;
+  font-family: 'Georgia', serif;
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  display: inline-block;
 }
 
 .page-confirmation p {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  margin-top: 1rem;
+  font-family: 'Segoe UI', serif;
+  background-color: #d8c09bc5;
+  font-size: clamp(15px, 1.8vw, 22px);
+  margin: 0;
+  padding: 0 0.5em;
+  display: inline-block;
+  letter-spacing: clamp(0.3px, 0.5vw, 0.6px);
+}
+
+.btn-retour {
+  margin-top: 5rem;
+  background-color: #6b150f;
+  color: #f5f5f5;
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  cursor: pointer;
+
 }

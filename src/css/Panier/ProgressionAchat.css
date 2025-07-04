@@ -1,63 +1,79 @@
 .progression-achat {
+  margin: 0;
+  padding: 0;
+}
+
+.progression-achat {
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin: 2rem 0;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  padding: clamp(1rem, 4vw, 2rem);
+  margin-bottom: clamp(1rem, 4vw, 2rem);
+  margin-top: clamp(2rem, 8vw, 4rem);
+  background-color: #46462a;
+  font-family: 'Segoe UI', serif;
 }
 
 .etape {
   display: flex;
   align-items: center;
-  position: relative;
-  margin: 0 10px;
+  gap: 0.6rem;
+  color: #f5f5f5;
+  font-size: 0.95rem;
 }
 
-.numero {
-  background-color: #ccc;
-  color: white;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.etape.active {
+  color: #f5f5f5;
   font-weight: bold;
 }
 
-.label {
-  margin-left: 8px;
-  font-size: 14px;
+.etape .numero {
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  border-radius: 50%;
+  border: 1px solid #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #f5f5f5;
+  flex-shrink: 0;
   font-weight: 500;
-}
-
-.barre {
-  width: 40px;
-  height: 2px;
-  background-color: #ccc;
-  margin: 0 8px;
+  letter-spacing: 0.1px;
 }
 
 .etape.active .numero {
-  background-color: #222;
+  background-color: #f5f5f5;
+  color: #46462a;
 }
 
-.etape.active + .barre {
-  background-color: #222;
+.etape .barre {
+  height: 1px;
+  width: 2.5rem;
+  background-color: #f5f5f5;
+  margin-left: 0.6rem;
+  margin-right: 0.6rem;
+}
+
+.etape:last-child .barre {
+  display: none;
 }
 
 @media (max-width: 600px) {
   .progression-achat {
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 1rem;
+    gap: 1rem;
   }
 
   .etape {
-    margin-bottom: 10px;
+    flex-direction: row;
   }
 
-  .barre {
+  .etape .barre {
     display: none;
   }
 }

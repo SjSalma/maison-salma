@@ -1,37 +1,111 @@
 .filter-section {
-  padding: 2rem;
-  text-align: center;
+  padding: 0 clamp(2rem, 6vw, 4rem);
+  margin: clamp(80px, 8vw, 120px) auto;
+}
+
+.filter-section:first-of-type {
+  position: relative;
+  z-index: 1;
+}
+
+.filter-header {
+  position: relative;
+  margin-bottom: clamp(4px, 0.8vw, 7px);
+  height: auto;
+}
+
+.filter-title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.scroll-indicator-wrapper {
+  display: flex;
+  align-items: flex-end;
+}
+
+.filter-title {
+  font-family: 'Georgia', serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  font-weight: normal;
+  color: #2c2c2c;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.scroll-indicator {
+  display: flex;
+  gap: clamp(5px, 0.8vw, 7px);
+  font-size: clamp(1.5rem, 2vw, 1.8rem);
+  font-family: 'Georgia', serif;
+  user-select: none;
+  align-items: center;
+}
+
+.scroll-indicator .dot {
+  color: #2c2c2c5e;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.scroll-indicator .dot.active {
+  color: #6b150f;
 }
 
 .cat-grid {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1rem;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: clamp(8px, 1vw, 13px);
+  padding: 0;
+  scrollbar-width: none;
+  cursor: grab;
+  scroll-behavior: smooth;
+}
+
+.cat-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.cat-grid.dragging {
+  cursor: grabbing;
+  user-select: none;
 }
 
 .cat-card {
-  width: 120px;
-  text-align: center;
+  flex: 0 0 auto;
+  width: clamp(220px, 18vw, 280px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   cursor: pointer;
 }
 
 .cat-card img {
-  width: 120px;
-  height: 120px;
+  width: 100%;
+  height: auto;
   object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid #ccc;
-  transition: transform 0.3s ease;
-}
-
-.cat-card img:hover {
-  transform: scale(1.05);
+  aspect-ratio: 3 / 3.7;
+  border-radius: 0;
+  border: none;
+  background-color: #f5f5f5;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
 }
 
 .cat-card p {
-  margin-top: 0.5rem;
-  font-size: 0.85rem;
-  font-weight: 600;
+  margin-top: clamp(6px, 0.8vw, 8px);
+  font-family: 'Segoe UI', serif;
+  font-size: clamp(12px, 1.2vw, 14px);
+  color: #2c2c2c;
+  letter-spacing: clamp(0.2px, 0.3vw, 0.3px);
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.filter-section.avec-espace {
+  margin: clamp(80px, 8vw, 120px) auto;
 }

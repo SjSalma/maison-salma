@@ -1,36 +1,60 @@
-.hero-banner {
-  position: relative;
+.section-soldes {
+  background-color: #d8c09bc5;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  margin: clamp(32px, 5vw, 64px) auto;
+}
+
+.soldes-titre {
+  font-family: 'Georgia', serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  font-weight: normal;
+  color: #3b2f2f;
+  margin-bottom: clamp(16px, 2vw, 32px);
+  letter-spacing: 0.3px;
+}
+
+.soldes-vide {
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  color: #777;
   text-align: center;
-  margin-bottom: 2rem;
 }
 
-.promo-bar {
-  background: #d6f0ea;
-  padding: 0.5rem;
-  font-weight: bold;
-  font-size: 0.9rem;
+.soldes-grille {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: clamp(11px, 1.5vw, 19px);
+  padding-bottom: clamp(6px, 0.8vw, 8px);
+  scroll-behavior: smooth;
 }
 
-.banner-img {
-  width: 100%;
-  max-height: 600px;
-  object-fit: cover;
+.soldes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: clamp(16px, 2vw, 32px);
 }
 
-.hero-text {
-  position: absolute;
-  bottom: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-}
-
-.hero-text h1 {
-  font-size: 2.8rem;
+.soldes-titre {
+  text-align: left !important;
   margin: 0;
 }
 
-.hero-text p {
-  font-size: 1.3rem;
+.lien-solde {
+  font-size: clamp(12px, 1.2vw, 14px);
+  font-family: 'Georgia', serif;
+  color: #3b2f2f;
+  text-decoration: underline;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+
+.lien-solde:hover {
+  opacity: 0.8;
 }

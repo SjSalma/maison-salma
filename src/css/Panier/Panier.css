@@ -1,68 +1,204 @@
-.paniers {
-  padding: 2rem;
+.panier-wrapper {
+  margin: 0;
+  padding: 0;
 }
 
-.page-produits {
-  padding: 2rem;
+.panier-wrapper h2 {
+  font-family: 'Georgia', serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  font-weight: normal;
+  color: #2c2c2c;
+  margin-bottom: clamp(4px, 0.8vw, 7px);
+  line-height: 1.2;
+  padding-right: clamp(1rem, 3vw, 2rem);
+  padding-left: clamp(1rem, 3vw, 2rem);
+  padding-top: clamp(1rem, 3vw, 2rem);
+}
+
+.panier-vide {
+  font-weight: normal;
+  color: #2c2c2c;
+  margin-bottom: clamp(4px, 0.8vw, 7px);
+  line-height: 1.2;
+  padding: clamp(1rem, 3vw, 2rem);
+  font-family: 'Georgia', serif;
   text-align: center;
 }
 
-.produits-container {
+.panier-grid {
+  padding-bottom: clamp(1rem, 3vw, 2rem);
+  padding-right: clamp(1rem, 3vw, 2rem);
+  padding-left: clamp(1rem, 3vw, 2rem);
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
-  margin-bottom: 2rem;
+  gap: 2rem;
+  align-items: flex-start;
+  font-family: 'Segoe UI', serif;
+  color: #2c2c2c;
+  letter-spacing: clamp(0.2px, 0.3vw, 0.3px);
+  text-align: left;
+  font-size: clamp(0.95rem, 1.45vw, 1.15rem);
 }
 
-.produit-card {
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 1rem;
-  padding: 1rem;
-  width: clamp(250px, 30vw, 320px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+/* Partie gauche - Produits */
+.panier-produits {
+  flex: 1 1 600px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
-.produit-card img {
+/* Lignes du tableau */
+.ligne-entete,
+.ligne-produit {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 0.5fr;
+  text-align: center;
   width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
+  box-sizing: border-box;
 }
 
-.quantite-control {
+.ligne-entete {
+  padding: 0.8rem 1rem;
+}
+
+.ligne-entete {
+  background-color: #d8c09bc5;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.ligne-produit {
+  align-items: center;
+  background-color: #f5f5f5;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.cellule-produit {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.cellule-produit img {
+  width: 60px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+
+/* Contrôle de quantité */
+.quantite-control.quantite-panier {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  font-family: 'Georgia', serif;
+}
+
+.quantite-control.quantite-panier button {
+  width: 28px;
+  height: 28px;
+  font-size: 1.1rem;
+  border: 0;
+  background-color: #f5f5f5;
+  color: #6b150f;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.quantite-control button {
-  background-color: #eee;
+.quantite-control.quantite-panier button:hover {
+  background-color: #f3e9d7;
+  color: #6b150f;
+}
+
+.quantite-control.quantite-panier span {
+  font-size: 1.05rem;
+  font-weight: 500;
+  width: 26px;
+  text-align: center;
+}
+
+/* Bouton supprimer */
+.btn-supprimer {
+  background: transparent;
   border: none;
-  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+  padding: 0.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease;
+  color: #6b150f;
+}
+
+.btn-supprimer:hover {
+  transform: scale(1.15);
+}
+
+/* Partie droite - Total */
+.panier-total {
+  flex: 0 0 280px;
+  background-color: #d8c09bc5;
+  padding: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.panier-total h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-family: 'Georgia', serif;
+}
+
+.panier-total p,
+.panier-total h4 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  margin: 0.4rem 0;
+  font-family: 'Segoe UI', serif;
+  color: #2c2c2c;
+  letter-spacing: clamp(0.2px, 0.3vw, 0.3px);
+  text-align: left;
+  font-size: clamp(0.95rem, 1.45vw, 1.15rem);
+}
+.panier-total h4 {
+  font-size: 1.05rem;
+  color: #6b150f;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+/* Bouton final */
+.btn-checkout {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.7rem;
   font-size: 1rem;
-  cursor: pointer;
-  border-radius: 0.3rem;
-}
-
-.total {
-  margin-top: 1rem;
-}
-
-.btn-acheter {
-  margin-top: 1rem;
-  padding: 0.6rem 1.2rem;
-  background-color: #222;
-  color: white;
+  background-color: #6b150f;
+  color: #f5f5f5;
   border: none;
-  border-radius: 0.5rem;
   cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: 'Georgia', serif;
 }
 
-.btn-acheter:hover {
-  background-color: #444;
+.btn-checkout:hover {
+  background-color: #6b150f;
+}
+
+/* Responsive : total prend toute la largeur en dessous */
+@media (max-width: 1000px) {
+  .panier-total {
+    flex: 1 1 100%;
+  }
 }

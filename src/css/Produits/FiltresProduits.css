@@ -1,16 +1,109 @@
-.filtres {
+/* === Overlay flou derrière le panneau === */
+.filtre-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(107, 21, 15, 0.08);
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 1.5rem;
+  align-items: center;
   justify-content: center;
+  z-index: 1500;
+  backdrop-filter: blur(4px);
 }
 
-.filtres input,
-.filtres select,
-.filtres button {
-  padding: 0.4rem 0.6rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 0.9rem;
+/* === Panneau latéral sous la navbar === */
+.panneau-filtres {
+  position: fixed;
+  top: clamp(65px, 7vw, 75px);
+  right: -100%;
+  width: 300px;
+  height: calc(100vh - clamp(65px, 7vw, 75px));
+  background-color: #d8c09b;
+  border-left: 1px solid #d8c09bc5;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.10);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: 'Georgia', serif;
+  transition: right 0.4s ease;
+  z-index: 2000;
+  overflow-y: auto;
+}
+
+.panneau-filtres.ouvert {
+  right: 0;
+}
+
+.entete-filtres {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.fermer-filtres {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #2c2c2c;
+}
+
+/* Champs de sélection */
+.panneau-filtres select {
+  font-family: 'Segoe UI', serif;
+  font-size: 0.95rem;
+  border: none;
+  border-bottom: 1px solid #2c2c2c;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  padding-right: 1.5rem;
+  color: #2c2c2c;
+  transition: all 0.3s ease;
+  margin-bottom: 8px;
+}
+
+.panneau-filtres select:focus {
+  outline: none;
+  border-color: #6b150f;
+}
+
+/* === Bouton juste en dessous des champs === */
+.filtres-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-filtres1 {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  background-color: transparent;
+  color: #6b150f;
+  border: 1px solid #6b150f;
+  font-family: 'Georgia', serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-filtres2 {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  background-color: #6b150f;
+  color: #fff4e0;
+  border: 1px solid #6b150f;
+  font-family: 'Georgia', serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.panneau-filtres select.selected {
+  font-weight: bold;
+  color: #46462a;
 }

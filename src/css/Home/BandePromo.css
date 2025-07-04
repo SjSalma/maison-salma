@@ -1,10 +1,15 @@
 .promo-banner {
-  background-color: #90c3b3;
-  color: white;
+  background-color: #46462a;
+  color: #edebdd;
   text-align: center;
+  padding: clamp(6px, 1vw, 10px) 0;
   font-weight: bold;
-  padding: 10px;
-  font-size: clamp(0.9rem, 2vw, 1.2rem);
-  position: relative;
-  z-index: 2;
+  letter-spacing: clamp(0.2px, 0.3vw, 0.3px);
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  font-family: 'Segoe UI', serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
 }

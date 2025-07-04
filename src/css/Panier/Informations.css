@@ -1,31 +1,45 @@
-.page-informations {
-  padding: clamp(1rem, 3vw, 2rem);
-  max-width: 600px;
-  margin: 0 auto;
-  font-family: 'Arial', sans-serif;
+.page-produits {
+  margin: 0;
+  padding: 0;
 }
 
-.page-informations form {
+.page-produits h2 {
+  font-family: 'Georgia', serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  font-weight: normal;
+  color: #2c2c2c;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  padding-right: clamp(1rem, 3vw, 2rem);
+  padding-left: clamp(1rem, 3vw, 2rem);
+  padding-top: clamp(1rem, 3vw, 2rem);
+}
+
+.form-infos {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin: 0 auto;
+  padding-bottom: clamp(1rem, 3vw, 2rem);
+  padding-right: clamp(1rem, 3vw, 2rem);
+  padding-left: clamp(1rem, 3vw, 2rem);
+  font-family: 'Segoe UI', serif;
 }
 
-.page-informations input {
-  padding: 0.7rem;
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-}
-
-.page-informations button {
-  padding: 0.7rem;
-  background-color: #111;
-  color: white;
+.form-infos input {
+  font-family: 'Segoe UI', serif;
+  font-size: 1rem;
+  padding: 0.8rem 1rem;
   border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
 }
 
-.page-informations button:hover {
-  background-color: #444;
+.form-infos button {
+  margin-top: 1rem;
+  background-color: #6b150f;
+  color: #f5f5f5;
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  cursor: pointer;
 }
