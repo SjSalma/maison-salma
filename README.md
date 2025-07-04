@@ -17,7 +17,22 @@ Il met en pratique les concepts de **conception centrée sur l’usager (CCU)** 
 ## Structure du projet
 
 ```
-
+maison-salma/
+├── public/                  # Fichiers statiques (favicon, index.html, etc.)
+├── src/
+│   ├── composants/          # Composants React réutilisables
+│   ├── context/             # Contextes React (Panier, Favoris, etc.)
+│   ├── css/                 # Feuilles de style CSS par section
+│   ├── pages/               # Pages principales du site (Home, Produits, etc.)
+│   ├── utils/               # Fonctions utilitaires
+│   ├── App.js               # Composant racine
+│   └── index.js             # Point d’entrée React
+├── maison_salma.db          # Base de données SQLite des produits
+├── server.js                # Backend
+├── .gitignore
+├── package.json
+├── package-lock.json
+└── README.md
 ```
 
 
