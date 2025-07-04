@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route,
   useNavigate,
@@ -77,7 +77,7 @@ function AppRoutes() {
       />
       <Route path="/achat/confirmation" element={<Confirmation />} />
 
-      {/* ✅ Redirection des routes inconnues vers la Home */}
+      {/* Redirection si aucune route ne correspond */}
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
@@ -110,12 +110,9 @@ function AppWrapper() {
   );
 }
 
-// ✅ GitHub Pages en prod, sinon local
-const basename = process.env.NODE_ENV === 'production' ? '/maison-salma' : '/';
-
 export default function App() {
   return (
-    <Router basename={basename}>
+    <Router>
       <AppWrapper />
     </Router>
   );

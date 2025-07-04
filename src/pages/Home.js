@@ -1,9 +1,9 @@
-// Home.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import BandePromo from '../composants/Home/BandePromo';
 import SectionCategorie from '../composants/Home/SectionCategorie';
 import SectionSoldes from '../composants/Home/SectionSoldes';
 import '../css/Home/Home.css';
+import donneesProduits from '../donnees/donneesProduits'; // ✅ ici
 
 export default function Home() {
   const [produitsSoldes, setProduitsSoldes] = useState([]);
@@ -28,35 +28,25 @@ export default function Home() {
   ];
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/produits')
-      .then(res => res.json())
-      .then(data => {
-        const soldes = data
-          .filter(p => p.solde > 0)
-          .sort((a, b) => b.solde - a.solde)
-          .slice(0, 4);
-        setProduitsSoldes(soldes);
-      })
-      .catch(err => console.error('Erreur chargement produits soldés :', err));
+    const soldes = donneesProduits
+      .filter(p => p.solde > 0)
+      .sort((a, b) => b.solde - a.solde)
+      .slice(0, 4);
+    setProduitsSoldes(soldes);
   }, []);
 
   return (
     <div className="home-page">
       <div className="home-banner">
-        <img src={`${process.env.PUBLIC_URL}/images/Home/home_banniere.jpg`} alt="Bannière Maison Salma" />
+        <img
+          src={`${process.env.PUBLIC_URL}/images/Home/home_banniere.jpg`}
+          alt="Bannière Maison Salma"
+        />
       </div>
 
-      {/* ✅ Wrapper qui remonte tout */}
       <div className="contenu-home">
-        <SectionCategorie titre="Découvrez notre sélection par style" 
-          data={styles} 
-          filtre="style" />
-        <SectionCategorie
-          titre="Découvrez notre sélection par pièce"
-          data={pieces}
-          filtre="piece"
-          className="avec-espace"
-        />
+        <SectionCategorie titre="Découvrez notre sélection par style" data={styles} filtre="style" />
+        <SectionCategorie titre="Découvrez notre sélection par pièce" data={pieces} filtre="piece" className="avec-espace" />
         <SectionSoldes produits={produitsSoldes} />
       </div>
     </div>

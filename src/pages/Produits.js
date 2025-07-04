@@ -5,6 +5,7 @@ import ListeProduits from '../composants/Produits/ListeProduits';
 import { useFavoris } from '../context/FavorisContext';
 import { SlidersHorizontal, Search } from 'lucide-react';
 import '../css/Produits/Produits.css';
+import donneesProduits from '../donnees/donneesProduits'; // ✅ nouveau
 
 export default function Produits() {
   const location = useLocation();
@@ -60,26 +61,22 @@ export default function Produits() {
     };
     if (params.get('filtre') === 'solde') filtreFromUrl.tri = 'solde';
 
-    fetch('http://localhost:3001/api/produits')
-      .then(res => res.json())
-      .then(data => {
-        const cleaned = data.map(p => ({
-          ...p,
-          type: p.type?.trim().toLowerCase(),
-          style: p.style?.trim().toLowerCase(),
-          piece: p.piece?.trim().toLowerCase(),
-          materiau: p.materiau?.trim().toLowerCase()
-        })).filter(p => p.type && p.style);
+    const cleaned = donneesProduits.map(p => ({
+      ...p,
+      type: p.type?.trim().toLowerCase(),
+      style: p.style?.trim().toLowerCase(),
+      piece: p.piece?.trim().toLowerCase(),
+      materiau: p.materiau?.trim().toLowerCase()
+    })).filter(p => p.type && p.style);
 
-        setProduits(cleaned);
-        setTypes([...new Set(cleaned.map(p => p.type))]);
-        setStyles([...new Set(cleaned.map(p => p.style))]);
-        setPieces([...new Set(cleaned.map(p => p.piece))]);
-        setMateriaux([...new Set(cleaned.map(p => p.materiau))]);
-        setFiltre(filtreFromUrl);
-        setFiltreTemp(filtreFromUrl);
-        setTermeRecherche(filtreFromUrl.recherche);
-      });
+    setProduits(cleaned);
+    setTypes([...new Set(cleaned.map(p => p.type))]);
+    setStyles([...new Set(cleaned.map(p => p.style))]);
+    setPieces([...new Set(cleaned.map(p => p.piece))]);
+    setMateriaux([...new Set(cleaned.map(p => p.materiau))]);
+    setFiltre(filtreFromUrl);
+    setFiltreTemp(filtreFromUrl);
+    setTermeRecherche(filtreFromUrl.recherche);
   }, [location.search]);
 
   useEffect(() => {
