@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import emailjs from '@emailjs/browser';
+import React, { useState } from 'react';
 import '../../css/Panier/Sondage.css';
 
 import {
@@ -16,19 +15,30 @@ export default function Sondage() {
   const [commentaire, setCommentaire] = useState('');
 
   const handleSubmit = () => {
-    const infosClient = JSON.parse(localStorage.getItem('infosClient'));
+    if (!note) {
+      alert("Veuillez sélectionner une note avant d'envoyer.");
+      return;
+    }
 
-    const formData = {
-      note,
-      commentaire,
-      nom: infosClient?.nom || 'Inconnu',
-      email: infosClient?.email || 'non fourni'
-    };
+    // Simuler l'envoi du sondage
+    console.log('📝 Sondage enregistré localement :', { note, commentaire });
 
-    emailjs.send('service_xxx', 'template_sondage', formData, 'user_xxx')
-      .then(() => setEnvoye(true))
-      .catch((err) => console.error('Erreur envoi sondage :', err));
+    // Réinitialiser les champs
+    setNote('');
+    setCommentaire('');
+    setEnvoye(true);
+
+    // Optionnel : faire disparaître le message après quelques secondes
+    setTimeout(() => setEnvoye(false), 4000);
   };
+
+  const options = [
+    { value: '😠', icon: <Angry size={28} strokeWidth={1.5} /> },
+    { value: '😐', icon: <Meh size={28} strokeWidth={1.5} /> },
+    { value: '🙂', icon: <Smile size={28} strokeWidth={1.5} /> },
+    { value: '😊', icon: <Laugh size={28} strokeWidth={1.5} /> },
+    { value: '🤩', icon: <Star size={28} strokeWidth={1.5} /> }
+  ];
 
   if (envoye) {
     return (
@@ -37,14 +47,6 @@ export default function Sondage() {
       </div>
     );
   }
-
-  const options = [
-    { value: '😠', icon: <Angry size={24} strokeWidth={1.5} /> },
-    { value: '😐', icon: <Meh size={24} strokeWidth={1.5} /> },
-    { value: '🙂', icon: <Smile size={24} strokeWidth={1.5} /> },
-    { value: '😊', icon: <Laugh size={24} strokeWidth={1.5} /> },
-    { value: '🤩', icon: <Star size={24} strokeWidth={1.5} /> }
-  ];
 
   return (
     <div className="sondage-container">
@@ -57,6 +59,7 @@ export default function Sondage() {
               type="radio"
               name="note"
               value={value}
+              checked={note === value}
               onChange={(e) => setNote(e.target.value)}
             />
             <span>{icon}</span>
