@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/maison-salma/static/css/main.7651ca3d.css",
-    "main.js": "/maison-salma/static/js/main.febe399a.js",
+    "main.css": "/maison-salma/static/css/main.2f53cf14.css",
+    "main.js": "/maison-salma/static/js/main.ce20abf9.js",
     "index.html": "/maison-salma/index.html",
-    "main.7651ca3d.css.map": "/maison-salma/static/css/main.7651ca3d.css.map",
-    "main.febe399a.js.map": "/maison-salma/static/js/main.febe399a.js.map"
+    "main.2f53cf14.css.map": "/maison-salma/static/css/main.2f53cf14.css.map",
+    "main.ce20abf9.js.map": "/maison-salma/static/js/main.ce20abf9.js.map"
   },
   "entrypoints": [
-    "static/css/main.7651ca3d.css",
-    "static/js/main.febe399a.js"
+    "static/css/main.2f53cf14.css",
+    "static/js/main.ce20abf9.js"
   ]
 }
