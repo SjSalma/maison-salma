@@ -1,0 +1,78 @@
+.sondage-container {
+  background-color: #f8f4ee;
+  border: 1px solid #d8c09b;
+  padding: 2rem;
+  margin: 4rem auto;
+  max-width: 600px;
+  text-align: center;
+  font-family: 'Georgia', serif;
+}
+
+.sondage-container h3 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  color: #2c2c2c;
+}
+
+.emoji-options {
+  display: flex;
+  justify-content: center;
+  gap: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.emoji-options label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  color: #6b150f;
+  transition: transform 0.2s ease;
+}
+
+.emoji-options label:hover {
+  transform: scale(1.2);
+}
+
+.emoji-options input[type="radio"] {
+  display: none;
+}
+
+.emoji-options input[type="radio"]:checked + span {
+  color: #74070E;
+  transform: scale(1.3);
+}
+
+.emoji-options span {
+  transition: color 0.3s ease, transform 0.3s ease;
+  font-size: 1.6rem;
+}
+
+textarea {
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  resize: vertical;
+  border: 1px solid #ccc;
+}
+
+.sondage-container button {
+  background-color: #6b150f;
+  color: #fff9ea;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  font-family: 'Georgia', serif;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.sondage-container button:hover {
+  background-color: #4a0e0b;
+}
+
+.merci-message {
+  font-size: 1.2rem;
+  color: #6b150f;
+  font-style: italic;
+}

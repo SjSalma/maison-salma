@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ProgressionAchat from '../../composants/Panier/ProgressionAchat';
 import '../../css/Panier/Confirmation.css';
 import { sendConfirmationEmail } from '../../utils/email';
+import Sondage from './Sondage';
 
 export default function Confirmation() {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ export default function Confirmation() {
     if (emailDejaEnvoye === 'true') return;
 
     const infosClient = JSON.parse(localStorage.getItem('infosClient'));
-    const panier = JSON.parse(localStorage.getItem('panier_final')); // ✅ ne pas toucher
+    const panier = JSON.parse(localStorage.getItem('panier_final'));
     const commandeId = localStorage.getItem('commandeId');
 
     if (infosClient && panier && commandeId) {
@@ -64,7 +65,6 @@ export default function Confirmation() {
           console.log('📧 Email envoyé !');
           localStorage.setItem('emailEnvoye', 'true');
 
-          // ✅ Nettoyage 10 secondes après, une fois l’email parti
           setTimeout(() => {
             const favoris = localStorage.getItem('favoris');
             localStorage.removeItem('infosClient');
@@ -83,6 +83,9 @@ export default function Confirmation() {
       <ProgressionAchat etape={3} />
       <div><h2>Merci pour votre achat !</h2></div>
       <div><p>Une confirmation a été envoyée par e-mail.</p></div>
+
+      <Sondage /> {/* ✅ Ajout ici du sondage */}
+
       <button onClick={() => navigate('/')} className="btn-retour">
         Retour à l'accueil
       </button>
